@@ -1,0 +1,13 @@
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.exe
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.deps.json
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.runtimeconfig.json
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.runtimeconfig.dev.json
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\testrpi.pdb
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.csprojAssemblyReference.cache
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.csproj.CoreCompileInputs.cache
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.AssemblyInfoInputs.cache
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.AssemblyInfo.cs
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.dll
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.pdb
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.genruntimeconfig.cache
