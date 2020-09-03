@@ -10,19 +10,24 @@ using System.Threading.Tasks;
 using Iot.Device.Bmxx80;
 using Iot.Device.Bmxx80.PowerMode;
 
+
+// TODO: Put BME280 sensor readings into a library, see C# book
+// TODO: Work on getting the potentiometer working, and extrapolate to anometer (direction)
+// TODO: Work on getting wind speed working (anometer)
+// TODO: Work on rain sensor, might need to do first using python
+// TODO: Upload to cloud DB
+
 namespace led_blink
 {
     class Program
     {
         static async Task Main(string[] args)
         {
-            var pin = 17;
-            var lightTimeInMilliseconds = 1000;
-            var dimTimeInMilliseconds = 200;
 
             // bus id on the raspberry pi 3
             const int busId = 1;
 
+            // Setup i2C device (BME280)
             var i2cSettings = new I2cConnectionSettings(busId, Bme280.DefaultI2cAddress);
             var i2cDevice = I2cDevice.Create(i2cSettings);
             var i2CBmpe80 = new Bme280(i2cDevice);
@@ -34,33 +39,25 @@ namespace led_blink
                 {
                     // set mode forced so device sleeps after read
                     i2CBmpe80.SetPowerMode(Bmx280PowerMode.Forced);
-                    i2CBmpe80.SetHumiditySampling(Sampling.HighResolution);
+                    
+                    // Get sampling accuracy
+                    i2CBmpe80.SetHumiditySampling(Sampling.Standard);
+                    i2CBmpe80.SetTemperatureSampling(Sampling.Standard);
+                    i2CBmpe80.SetPressureSampling(Sampling.Standard);
+
+                    // Get variables
+                    Iot.Units.Temperature tempValue = await i2CBmpe80.ReadTemperatureAsync();
                     double humValue = await i2CBmpe80.ReadHumidityAsync();
-                    Console.WriteLine($"Humidity: {humValue} %");
+                    double preValue = await i2CBmpe80.ReadPressureAsync();
 
-                    if(humValue > 38)
-                    {
-                        // Console.WriteLine($"Let's blink an LED!");
-                        using (GpioController controller = new GpioController())
-                        {
-                            controller.OpenPin(pin, PinMode.Output);
-                            // Console.WriteLine($"GPIO pin enabled for use: {pin}");
+                    // Print to screen
+                    Console.WriteLine($"Weather at time: {DateTime.Now}");
+                    Console.WriteLine($"Temperature: {tempValue.Celsius:0.#}\u00B0C");
+                    Console.WriteLine($"Pressure: {preValue/100:0.##}hPa");
+                    Console.WriteLine($"Relative humidity: {humValue:0.#}%\n");
 
-                            Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs eventArgs) =>
-                            {
-                                controller.Dispose();
-                            };
-
-                            
-                            Console.WriteLine($"Light for {lightTimeInMilliseconds}ms");
-                            controller.Write(pin, PinValue.High);
-                            Thread.Sleep(lightTimeInMilliseconds);
-                            Console.WriteLine($"Dim for {dimTimeInMilliseconds}ms");
-                            controller.Write(pin, PinValue.Low);
-                            Thread.Sleep(dimTimeInMilliseconds);
-                        
-                        }
-                    }
+                    Thread.Sleep(2000);
+                    
                 }
             }
         }

@@ -11,3 +11,13 @@ C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.AssemblyInfo.cs
 C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.dll
 C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.pdb
 C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.genruntimeconfig.cache
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\Iot.Device.Bindings.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\System.Device.Gpio.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\runtimes\linux\lib\netstandard2.0\System.Device.Gpio.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Device.Gpio.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\travs\testrpi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\travs\testrpi\obj\Debug\netcoreapp3.1\testrpi.csproj.CopyComplete
